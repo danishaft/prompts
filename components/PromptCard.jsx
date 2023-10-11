@@ -9,6 +9,11 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
   const router = useRouter();
 
   const [copied, setCopied] = useState('')
+
+  const handleProfile = () => {
+    if(post.creator._id === session?.user.id) return router.push("/profile")
+  }
+
   const handleCopy = () => {
     setCopied(post.prompt);
     navigator.clipboard.writeText(post.prompt);
@@ -24,6 +29,7 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
             width={40}
             height={40}
             className="rounded-full object-contain"
+            onClick={handleProfile}
           />
 
           <div className="flex flex-col">
