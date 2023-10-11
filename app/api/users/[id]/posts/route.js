@@ -1,6 +1,7 @@
 import { connectedToDB } from "@utils/database";
  import Prompt from "@models/prompt";
 
+ //get all post related to the user
  export const GET = async (request, {params}) => {
     try{
         await connectedToDB();
